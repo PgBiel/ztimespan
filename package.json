@@ -1,0 +1,26 @@
+{
+  "name": "ztimespan",
+  "version": "1.0.0",
+  "description": "Timespans in JS.",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo echo echo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PgBiel/ztimespan.git"
+  },
+  "keywords": [
+    "ztimespan",
+    "timespan",
+    "timespans",
+    "time",
+    "js"
+  ],
+  "author": "PgBiel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PgBiel/ztimespan/issues"
+  },
+  "homepage": "https://github.com/PgBiel/ztimespan#readme"
+}
