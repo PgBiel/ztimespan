@@ -18,13 +18,13 @@ Time (or however you call the variable) will be a function, that can be called w
   * An array of time unit and amount of it (e.g.: `["years", 1]` for 1 year).
 
 Here are all the valid time units, just for reference:
-  * years, year, y;
-  * months, month, mo;
-  * weeks, week, w;
-  * days, day, d;
-  * hours, hour, h;
-  * minutes, minute, min, m;
-  * seconds, second, sec, s.
+  * `years`, `year`, `y`;
+  * `months`, `month`, `mo`;
+  * `weeks`, `week`, `w`;
+  * `days`, `day`, `d`;
+  * `hours`, `hour`, `h`;
+  * `minutes`, `minute`, `min`, `m`;
+  * `seconds`, `second`, `sec`, `s`.
 
 P.S.: Using a time unit that is in singular doesn't change anything.
 
