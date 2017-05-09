@@ -1,0 +1,2 @@
+# ztimespan
+Timespans in JS.
