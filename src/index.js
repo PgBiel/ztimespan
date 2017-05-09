@@ -96,6 +96,7 @@ or an array of time unit and their amount.");
     } else {
       throw new TypeError(ADD_ERROR);
     }
+    if (this.time < 0) this.time = 0;
     return this;
   };
   TP.remove = function(unitOrQuantity, amount) {
@@ -117,6 +118,7 @@ or an array of time unit and their amount.");
     return this;
   };
   TP.toString = function() {
+    if (this.time < 0) this.time = 0;
     var unitObj = this.units;
     var result = "";
     for (var i = 0; i < Object.keys(unitObj).length; i++) {
@@ -146,6 +148,7 @@ or an array of time unit and their amount.");
     Object.defineProperty(TP, name, { get: func });
   };
   defineGetter("units", function() {
+    if (this.time < 0) this.time = 0;
     var diff = this.time;
     var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 7 * 4 * 12));
     diff -= years * (1000 * 60 * 60 * 24 * 7 * 4 * 12);
@@ -175,6 +178,9 @@ or an array of time unit and their amount.");
       hours: hours,
       minutes: mins,
       seconds: seconds };
+  });
+  defineGetter("date", function() {
+    return new Date(this.time);
   });
   for (var ind = 0; ind < METHODS.length; ind++) {
     var method = METHODS[ind];

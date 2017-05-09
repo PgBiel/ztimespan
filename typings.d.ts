@@ -37,6 +37,7 @@ declare namespace ztimespan {
     public readonly totalMinutes: number;
     public readonly seconds: number;
     public readonly totalSeconds: number;
+    public readonly date: Date;
     public readonly units: { [prop in TimeUnit]?: number };
     // functions
     public add: Addable<this>;
