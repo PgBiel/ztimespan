@@ -60,23 +60,23 @@ Now, let's go in detail on the Time class. It has the following methods:
 P.S.: They are all chainable (as in you can do `.add(...).remove(...).clear(...)`).
 
 Both `add` and `remove` work the same way, except one is the opposite of the other: `add` is to add to stored time while `remove` is to remove. There are two ways you can call them:
-  1. `(timeUnit, amount)` -> Add/remove a certain amount of a time unit.
-  Example:
-  ```js
-  myTimeSpan.add("year", 3); // add 3 years
-  myTimeSpan.remove("y", 2); // remove 2 years
-  ```
+1. `(timeUnit, amount)` -> Add/remove a certain amount of a time unit.
+Example:
+```js
+myTimeSpan.add("year", 3); // add 3 years
+myTimeSpan.remove("y", 2); // remove 2 years
+```
 
-  2. `(quantity)` -> A certain amount of time to add/remove. That can be:
-  * A Date (Gets amount of time since Jan 1, 1970);
-  * A Time instance (that can also be itself, gets time stored);
-  * A number (in milliseconds).
-  Example:
-  ```js
-  myTimeSpan.add(new Date());
-  myTimeSpan.add(Time(1000));
-  myTimeSpan.add(1000);
-  ```
+2. `(quantity)` -> A certain amount of time to add/remove. That can be:
+* A Date (Gets amount of time since Jan 1, 1970);
+* A Time instance (that can also be itself, gets time stored);
+* A number (in milliseconds).
+Example:
+```js
+myTimeSpan.add(new Date());
+myTimeSpan.add(Time(1000));
+myTimeSpan.add(1000);
+```
 
 The `clear` method doesn't take any argument and sets the time stored to 0 (I mean, you can always do `<Time object>.time = 0`, but this has the advantage of being chainable).
 
