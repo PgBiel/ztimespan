@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/PgBiel/ztimespan.git"
   },
+  "typings": "typings.d.ts",
   "keywords": [
     "ztimespan",
     "timespan",
