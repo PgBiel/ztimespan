@@ -48,7 +48,7 @@ Time.seconds(7);
 ```
 
 Time instances have the `time` property, which is the time stored, in milliseconds.
-NOTE: Make sure to not make `time` negative. Most methods check if time is negative and set it to 0 if so, but keeping it negative can cause buggy behavior.
+NOTE: Make sure to not make `time` negative. Most methods check if time is negative and set it to 0 if so, but keeping it negative can cause buggy behavior. (Same goes for NaN.)
 
 ### Methods
 
@@ -98,7 +98,7 @@ For example:
 ```
 * `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds` -> The amount of said unit that perfectly fits in the time stored.
 * `totalYears`, `totalMonths`, `totalWeeks`, `totalDays`, `totalHours`, `totalMinutes`, `totalSeconds` -> The amount of said unit that fits in the time stored, perfectly or not. Basically dividing the time stored by 1 of that unit.
-* `date` -> The date representation of this timespan.
+* `date` -> The Date representation of this timespan.
 
 ### String-ified
 

@@ -92,11 +92,12 @@ or an array of time unit and their amount.");
       amount = Number(amount);
       this.time += Time[ALIASES[unitOrQuantity][0]](amount);
     } else if (typeof unitOrQuantity === "number") {
+      if (isNaN(unitOrQuantity)) throw new TypeError("Quantity must not be NaN!");
       this.time += unitOrQuantity;
     } else {
       throw new TypeError(ADD_ERROR);
     }
-    if (this.time < 0) this.time = 0;
+    if (this.time < 0 || isNaN(this.time)) this.time = 0;
     return this;
   };
   TP.remove = function(unitOrQuantity, amount) {
@@ -118,7 +119,7 @@ or an array of time unit and their amount.");
     return this;
   };
   TP.toString = function() {
-    if (this.time < 0) this.time = 0;
+    if (this.time < 0 || isNaN(this.time)) this.time = 0;
     var unitObj = this.units;
     var result = "";
     for (var i = 0; i < Object.keys(unitObj).length; i++) {
@@ -148,7 +149,7 @@ or an array of time unit and their amount.");
     Object.defineProperty(TP, name, { get: func });
   };
   defineGetter("units", function() {
-    if (this.time < 0) this.time = 0;
+    if (this.time < 0 || isNaN(this.time)) this.time = 0;
     var diff = this.time;
     var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 7 * 4 * 12));
     diff -= years * (1000 * 60 * 60 * 24 * 7 * 4 * 12);
