@@ -77,8 +77,9 @@ or an array of time unit and their amount.");
       return new Time(initialVal);
     }
   };
-  var TP = Time.prototype;
+  Time.Time = Time;
   // methods
+  var TP = Time.prototype;
   TP.add = function(unitOrQuantity, amount) {
     if (amount == null) amount = 0;
     if (unitOrQuantity instanceof Time) {
