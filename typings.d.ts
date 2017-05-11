@@ -1,4 +1,4 @@
-declare var Time: typeof ztimespan.TimeFunc;
+declare var Time: typeof ztimespan.Time;
 export = Time;
 export as namespace Time;
 
@@ -18,8 +18,9 @@ declare namespace ztimespan {
   type Addable<T> = {
     (unit: TimeUnit, amount: number): T;
     (quantity: Time | Date | number): T;
-  }
+  };
   class Time {
+    constructor(initialVal: InitialTimeValue);
     // properties
     public time: number;
     // getters
@@ -39,12 +40,20 @@ declare namespace ztimespan {
     public readonly totalSeconds: number;
     public readonly date: Date;
     public readonly units: { [prop in TimeUnit]?: number };
-    // functions
+    // methods
     public add: Addable<this>;
     public remove: Addable<this>;
     public clear(): this;
     public toString(): string;
-  };
+    // static
+    public static years: UnitFunc;
+    public static months: UnitFunc;
+    public static weeks: UnitFunc;
+    public static days: UnitFunc;
+    public static hours: UnitFunc;
+    public static minutes: UnitFunc;
+    public static seconds: UnitFunc;
+  }
   type UnitFunc = (amount: number) => number;
   type TimeFuncType = {
     (initialVal?: InitialTimeValue): Time;
