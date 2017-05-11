@@ -9,7 +9,7 @@ Made typings export a Time property instead for the class, edited code to add Ti
 
 ## 1.0.0
 #### 1.0.7
-A failed attempt of exporting the class.
+A failed attempt of exporting the class (at typings).
 
 #### 1.0.6
 Fixed typings property at `package.json`.
