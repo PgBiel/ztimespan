@@ -34,6 +34,7 @@ export declare class Time {
   public static hours: Time.UnitFunc;
   public static minutes: Time.UnitFunc;
   public static seconds: Time.UnitFunc;
+  public static validUnit(str: string): str is Time.TimeUnit;
 }
 
 declare namespace Time {
@@ -43,8 +44,8 @@ declare namespace Time {
     | "weeks"   | "week"   | "w"
     | "days"    | "day"    | "d"
     | "hours"   | "hour"   | "h"
-    | "minutes" | "minute" | "m" | "min"
-    | "seconds" | "second" | "s" | "sec";
+    | "minutes" | "minute" | "m" | "mins" | "min"
+    | "seconds" | "second" | "s" | "secs" | "sec";
   export type InitialTimeValue = Time
     | Date
     | number

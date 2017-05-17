@@ -4,6 +4,9 @@ Just to organize things.
 
 # 1.0
 ## 1.1.0
+#### 1.1.1
+Added a `Time#validUnit` method just in case you want to make sure a string is a valid time unit. Also added `mins` and `secs` as valid time units.
+
 #### Initial (1.1.0)
 Made typings export a Time property instead for the class, edited code to add Time.Time (a circular) and made `CHANGES.md`.
 

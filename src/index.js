@@ -24,15 +24,17 @@ string (of unit, if using this add a second argument of the amount of that unit 
     hour: ["hours", "hour", "h"],
     h: ["hours", "hour", "h"],
 
-    minutes: ["minutes", "minute", "min", "m"],
-    minute: ["minutes", "minute", "min", "m"],
-    min: ["minutes", "minute", "min", "m"],
-    m: ["minutes", "minute", "min", "m"],
+    minutes: ["minutes", "minute", "mins", "min", "m"],
+    minute: ["minutes", "minute", "mins", "min", "m"],
+    mins: ["minutes", "minute", "mins", "min", "m"],
+    min: ["minutes", "minute", "mins", "min", "m"],
+    m: ["minutes", "minute", "mins", "min", "m"],
 
-    seconds: ["seconds", "second", "sec", "s"],
-    second: ["seconds", "second", "sec", "s"],
-    sec: ["seconds", "second", "sec", "s"],
-    s: ["seconds", "second", "sec", "s"],
+    seconds: ["seconds", "second", "secs", "sec", "s"],
+    second: ["seconds", "second", "secs", "sec", "s"],
+    sec: ["seconds", "second", "secs", "sec", "s"],
+    secs: ["seconds", "second", "secs", "sec", "s"],
+    s: ["seconds", "second", "secs", "sec", "s"],
   };
   // constructor
   var Time = function(initialVal) {
@@ -76,6 +78,10 @@ or an array of time unit and their amount.");
     } else {
       return new Time(initialVal);
     }
+  };
+  Time.validUnit = function(str) {
+    if (typeof str !== "string") return false;
+    return (str.toLowerCase()) in ALIASES;
   };
   Time.Time = Time;
   // methods

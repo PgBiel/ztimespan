@@ -23,8 +23,8 @@ Here are all the valid time units, just for reference:
   * `weeks`, `week`, `w`;
   * `days`, `day`, `d`;
   * `hours`, `hour`, `h`;
-  * `minutes`, `minute`, `min`, `m`;
-  * `seconds`, `second`, `sec`, `s`.
+  * `minutes`, `minute`, `mins`, `min`, `m`;
+  * `seconds`, `second`, `secs`, `sec`, `s`.
 
 P.S.: Using a time unit that is in singular doesn't change anything.
 
@@ -35,6 +35,7 @@ var myTimeSpan = new Time(5); // or just Time(5)
 ```
 Time will also have a few utility functions as properties:
 * `years(amount)`, `months(amount)`, `weeks(amount)`, `days(amount)`, `hours(amount)`, `minutes(amount)`, `seconds(amount)` -> Returns `amount` of said unit, in milliseconds.
+* `validUnit(str)` -> Returns `true` if `str` is a valid time unit string, `false` otherwise. E.g.: `Time.validUnit("min")` returns `true`.
 
 Example:
 ```js
