@@ -1,4 +1,6 @@
 # ztimespan
+[![ztimespan](http://img.shields.io/npm/v/ztimespan.svg)](https://www.npmjs.org/package/ztimespan) [![ztimespan](http://img.shields.io/npm/dm/ztimespan.svg)](https://www.npmjs.org/package/ztimespan)
+
 Timespans in JS.
 
 ## Installation
