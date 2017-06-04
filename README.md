@@ -56,16 +56,19 @@ NOTE: Make sure to not make `time` negative. Most methods check if time is negat
 Now, let's go in detail on the Time class. It has the following methods:
   * add;
   * remove;
+  * subtract;
   * clear.
 
-P.S.: They are all chainable (as in you can do `.add(...).remove(...).clear(...)`).
+P.S.: They are all chainable (as in you can do `.add(...).remove(...).subtract(...).clear(...)`).
+P.P.S.: `Subtract` is the same as `remove`.
 
-Both `add` and `remove` work the same way, except one is the opposite of the other: `add` is to add to stored time while `remove` is to remove. There are two ways you can call them:
+Both `add` and `remove`/`subtract` work the same way, except one is the opposite of the other: `add` is to add to stored time while `remove`/`subtract` is to remove. There are two ways you can call them:
 1. `(timeUnit, amount)` -> Add/remove a certain amount of a time unit.
 Example:
 ```js
 myTimeSpan.add("year", 3); // add 3 years
-myTimeSpan.remove("y", 2); // remove 2 years
+myTimeSpan.remove("y", 2); // remove/subtract 2 years
+myTimeSpan.subtract("years", 6); // remove/subtract 6 years
 ```
 
 2. `(quantity)` -> A certain amount of time to add/remove. That can be:

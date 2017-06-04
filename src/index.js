@@ -121,6 +121,7 @@ or an array of time unit and their amount.");
       throw new TypeError(ADD_ERROR);
     }
   };
+  TP.subtract = TP.remove; // alias
   TP.clear = function() {
     this.time = 0;
     return this;
@@ -202,14 +203,15 @@ or an array of time unit and their amount.");
       seconds: 1e3
     };
     (function() { // sigh
-      var num = map[method] || 1e3;
-      Time[method] = function(amount) {
+      var actualMethod = method;
+      var num = map[actualMethod] || 1e3;
+      Time[actualMethod] = function(amount) {
         return amount * num;
       };
-      defineGetter(method, function() {
-        return this.units[method];
+      defineGetter(actualMethod, function() {
+        return this.units[actualMethod];
       });
-      defineGetter("total" + method.replace(/^(\w)/, function(l) { return l.toUpperCase(); }), function() {
+      defineGetter("total" + actualMethod.replace(/^(\w)/, function(l) { return l.toUpperCase(); }), function() {
         return this.time / num;
       });
     })();

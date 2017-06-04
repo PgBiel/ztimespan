@@ -24,6 +24,7 @@ export declare class Time {
   // methods
   public add: Time.TimeAddable<this>;
   public remove: Time.TimeAddable<this>;
+  public subtract: Time.TimeAddable<this>;
   public clear(): this;
   public toString(): string;
   // static

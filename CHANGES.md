@@ -3,6 +3,10 @@
 Just to organize things.
 
 # 1.0
+## 1.2.0
+#### Initial (1.2.0)
+Added a `Time#subtract` as alias of `Time#remove`. Also, added `jest` tests and fixed some bugs that made the unit getters not work properly.
+
 ## 1.1.0
 #### 1.1.1
 Added a `Time#validUnit` method just in case you want to make sure a string is a valid time unit. Also added `mins` and `secs` as valid time units.
