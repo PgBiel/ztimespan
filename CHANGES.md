@@ -4,6 +4,9 @@ Just to organize things.
 
 # 1.0
 ## 1.2.0
+#### 1.2.1
+Made `npm test` actually work...
+
 #### Initial (1.2.0)
 Added a `Time#subtract` as alias of `Time#remove`. Also, added `jest` tests and fixed some bugs that made the unit getters not work properly. (+ Added badges to README)
 

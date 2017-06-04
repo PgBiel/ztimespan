@@ -1,10 +1,10 @@
 {
   "name": "ztimespan",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Timespans in JS.",
   "main": "./src/index.js",
   "scripts": {
-    "test": "./test/ztimespan.test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
