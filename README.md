@@ -3,6 +3,8 @@
 
 Timespans in JS.
 
+[![ztimespan](https://nodei.co/npm/ztimespan.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ztimespan/)
+
 ## Installation
 `npm install --save ztimespan`
 (Can also be used in browser, just add it as `src` of a `<script>` and it will be added to `window` as `Time`)
