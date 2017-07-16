@@ -5,6 +5,8 @@ Timespans in JS.
 
 [![ztimespan](https://nodei.co/npm/ztimespan.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ztimespan/)
 
+**v2.0.0 has a breaking change!! Please read the v2.0.0 section at the bottom.**
+
 ## Installation
 `npm install --save ztimespan`
 (Can also be used in browser, just add it as `src` of a `<script>` and it will be added to `window` as `Time`)
@@ -120,3 +122,7 @@ This will output in console:
 ```
 4 years and 7 minutes
 ```
+
+### v2.0.0
+
+This version has a very breaking change: It changes the value of a month to be 30 days instead of 28, which was pretty wrong (not all months are february :P), which changes the millisecond value for everything. To keep using it in case you already used this module before and don't want to break saved values, you can use the `Time#toggleCompat` function or `Time#setCompat` (which asks for a boolean argument and sets the use of compatibility to it). When compatibility is on _(NOTE: Compatibility goes through everywhere that it is loaded!)_, it changes to operate with the old time values. Please note that the instances are not changed, just the methods. And yes, you can turn off compatibility with the same way you can turn it on.

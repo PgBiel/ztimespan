@@ -36,6 +36,31 @@ string (of unit, if using this add a second argument of the amount of that unit 
     secs: ["seconds", "second", "secs", "sec", "s"],
     s: ["seconds", "second", "secs", "sec", "s"],
   };
+  // compatibility option
+  var useCompat = false;
+  // map
+  var MAP = {
+    years: 31104e6,
+    months: 2592e6,
+    weeks: 6048e5,
+    days: 864e5,
+    hours: 36e5,
+    minutes: 6e4,
+    seconds: 1e3
+  };
+  var MAP_ALT = {
+    years: 290304e5,
+    months: 24192e5
+  };
+  var appropriateNum = function(method) {
+    let num;
+    if (useCompat && method in MAP_ALT) {
+      num = MAP_ALT[method];
+    } else {
+      num = MAP[method];
+    }
+    return num || 1e3;
+  };
   // constructor
   var Time = function(initialVal) {
     this.time = 0;
@@ -83,6 +108,15 @@ or an array of time unit and their amount.");
     if (typeof str !== "string") return false;
     return (str.toLowerCase()) in ALIASES;
   };
+  Time.setCompat = function(use) {
+    const oldCompat = useCompat;
+    useCompat = Boolean(use);
+    return oldCompat;
+  }
+  Time.toggleCompat = function() {
+    useCompat = !useCompat;
+    return !useCompat;
+  }
   Time.Time = Time;
   // methods
   var TP = Time.prototype;
@@ -159,11 +193,11 @@ or an array of time unit and their amount.");
   defineGetter("units", function() {
     if (this.time < 0 || isNaN(this.time)) this.time = 0;
     var diff = this.time;
-    var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 7 * 4 * 12));
-    diff -= years * (1000 * 60 * 60 * 24 * 7 * 4 * 12);
+    var years = Math.floor(diff / (1000 * 60 * 60 * 24 * (useCompat ? 7 * 4 : 30) * 12));
+    diff -= years * (1000 * 60 * 60 * 24 * (useCompat ? 7 * 4 : 30) * 12);
 
-    var months = Math.floor(diff / (1000 * 60 * 60 * 24 * 7 * 4));
-    diff -= months * (1000 * 60 * 60 * 24 * 7 * 4);
+    var months = Math.floor(diff / (1000 * 60 * 60 * 24 * (useCompat ? 7 * 4 : 30)));
+    diff -= months * (1000 * 60 * 60 * 24 * (useCompat ? 7 * 4 : 30));
 
     var weeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
     diff -= weeks * (1000 * 60 * 60 * 24 * 7);
@@ -193,26 +227,16 @@ or an array of time unit and their amount.");
   });
   for (var ind = 0; ind < METHODS.length; ind++) {
     var method = METHODS[ind];
-    var map = {
-      years: 290304e5,
-      months: 24192e5,
-      weeks: 6048e5,
-      days: 864e5,
-      hours: 36e5,
-      minutes: 6e4,
-      seconds: 1e3
-    };
     (function() { // sigh
       var actualMethod = method;
-      var num = map[actualMethod] || 1e3;
       Time[actualMethod] = function(amount) {
-        return amount * num;
+        return amount * appropriateNum(actualMethod);
       };
       defineGetter(actualMethod, function() {
         return this.units[actualMethod];
       });
       defineGetter("total" + actualMethod.replace(/^(\w)/, function(l) { return l.toUpperCase(); }), function() {
-        return this.time / num;
+        return this.time / appropriateNum(actualMethod);
       });
     })();
   }
