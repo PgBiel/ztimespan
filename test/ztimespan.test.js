@@ -124,13 +124,13 @@ describe("Getters", function() {
     expect(time.seconds).toBe(2);
   });
   test("each total unit", function() {
-    expect(time.totalYears).toBeCloseTo(4.248573977623457);
-    expect(time.totalMonths).toBeCloseTo(50.98288773148148);
-    expect(time.totalWeeks).toBeCloseTo(203.93155092592593);
-    expect(time.totalDays).toBeCloseTo(1427.5208564814816);
-    expect(time.totalHours).toBeCloseTo(34260.500555555554);
-    expect(time.totalMinutes).toBeCloseTo(2055630.0333333334);
-    expect(time.totalSeconds).toBeCloseTo(123337802);
+    expect(time.totalYears).toBeCloseTo(4.243113490226338);
+    expect(time.totalMonths).toBeCloseTo(50.91736188271605);
+    expect(time.totalWeeks).toBeCloseTo(218.2172652116402);
+    expect(time.totalDays).toBeCloseTo(1527.5208564814816);
+    expect(time.totalHours).toBeCloseTo(36660.500555555554);
+    expect(time.totalMinutes).toBeCloseTo(2199630.033333333);
+    expect(time.totalSeconds).toBeCloseTo(131977802);
   });
   test("date conversion has same timestamp", function() {
     expect(time.date.getTime()).toBe(time.time);
