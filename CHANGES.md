@@ -3,6 +3,10 @@
 Just to organize things.
 
 # 2.0
+## 2.1.0
+#### Initial (2.1.0)
+Added normal operations (`+`, `-`, `*`, `/`, etc) to Time instances.
+
 ## 2.0.0
 #### Initial (2.0.0)
 Changed the amount of time that one month takes from 4 weeks to 30 days (which is around 4.2 weeks). To use the old value, use the `Time#toggleCompat` or `Time#setCompat` methods. The first one toggles it and the second one takes one boolean argument setting the use of old value to it.

@@ -5,8 +5,6 @@ Timespans in JS.
 
 [![ztimespan](https://nodei.co/npm/ztimespan.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ztimespan/)
 
-**v2.0.0 has a breaking change!! Please read the v2.0.0 section at the bottom.**
-
 ## Installation
 `npm install --save ztimespan`
 (Can also be used in browser, just add it as `src` of a `<script>` and it will be added to `window` as `Time`)
@@ -121,6 +119,13 @@ console.log(myOtherTimeSpan.toString());
 This will output in console:
 ```
 4 years and 7 minutes
+```
+
+### Natural operations
+
+You can do natural operations (`+`, `-`, `*`, `/`, etc) with time instances, such as `time * 5`. However, keep in mind that it does those operations to the millisecond value AND returns the new _millisecond_ value, which means it doesn't return a time instance. However, you can always do:
+```js
+otherTime = new Time(time * 5);
 ```
 
 ### v2.0.0

@@ -26,6 +26,7 @@ export declare class Time {
   public remove: Time.TimeAddable<this>;
   public subtract: Time.TimeAddable<this>;
   public clear(): this;
+  public valueOf(): number;
   public toString(): string;
   // static
   public static years: Time.UnitFunc;

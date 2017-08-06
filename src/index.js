@@ -160,6 +160,10 @@ or an array of time unit and their amount.");
     this.time = 0;
     return this;
   };
+  TP.valueOf = function() {
+    if (this.time < 0 || isNaN(this.time)) this.time = 0;
+    return Number(this.time); // in case it's null or undefined
+  }
   TP.toString = function() {
     if (this.time < 0 || isNaN(this.time)) this.time = 0;
     var unitObj = this.units;
