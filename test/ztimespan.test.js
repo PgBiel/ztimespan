@@ -1,4 +1,4 @@
-var Time = require("../src/index");
+var Time = require("../build/time");
 
 describe("Constructor", function() {
   test("with 'new'", function() {
@@ -7,7 +7,7 @@ describe("Constructor", function() {
     expect(newTime).toBeInstanceOf(Time);
     expect(newTime.time).toBe(0);
   });
-  test("without 'new'", function() {
+  /* test("without 'new'", function() {
     var time = Time();
     expect(time).toBeTruthy();
     expect(time).toBeInstanceOf(Time);
@@ -18,7 +18,7 @@ describe("Constructor", function() {
     var time = Time();
     expect(newTime.time).toBe(time.time);
     expect(newTime).toMatchObject(time);
-  });
+  });  - ABANDONED*/
 });
 
 describe("Methods", function() {
