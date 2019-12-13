@@ -51,7 +51,7 @@ declare namespace Time {
   export type InitialTimeValue = Time
     | Date
     | number
-    | [TimeUnit, number];
+    | Array<TimeUnit|number>;
   export type TimeAddable<T> = {
     (unit: TimeUnit, amount: number): T;
     (quantity: Time | Date | number): T;
